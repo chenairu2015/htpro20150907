@@ -95,4 +95,15 @@ public class HTDateUtil {
 		}
 		return date;
 	}
+
+	/**
+	 * 将当前时间日期转换成的字符串格式
+	 * 
+	 * @param date
+	 * @param templet
+	 * @return
+	 */
+	public static String getNowDateTime() {
+		return getDate(null, "yyyy-MM-dd HH:mm:ss");
+	}
 }
