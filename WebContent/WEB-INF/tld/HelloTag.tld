@@ -4,14 +4,14 @@
 	version="2.0">
 	<tlibversion>1.0</tlibversion>
 	<short-name>examples</short-name>
-	<uri>/hellodemotag</uri>
+	<uri>/HelloTag_ExtendsByTagSupport</uri>
 	<description>
 		A simple tab library for the examples
 	</description>
 
 	<tag>
 		<name>hello1</name>
-		<tag-class>com.htsoft.pro.tag.HelloTag</tag-class>
+		<tag-class>com.htsoft.pro.tag.HelloTag_ExtendsByTagSupport</tag-class>
 		<body-content>empty</body-content>
 		<description>
 			Simple hello world examples.

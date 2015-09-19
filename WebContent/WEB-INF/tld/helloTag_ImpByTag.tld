@@ -4,7 +4,7 @@
 	version="2.0">
 	<tlibversion>1.0</tlibversion>
 	<short-name>examples</short-name>
-	<uri>/demotag</uri>
+	<uri>/HelloTag_ImpByTag</uri>
 	<description>
 		A simple tab library for the examples
 	</description>
@@ -12,7 +12,7 @@
 	<tag>
 		<description>Outputs Hello, World,从实现Tag接口起开发</description>
 		<name>hello_int</name>
-		<tag-class>com.htsoft.pro.tag.HelloTagInterFace</tag-class>
+		<tag-class>com.htsoft.pro.tag.HelloTag_ImpByTag</tag-class>
 		<body-content>empty</body-content>
 	</tag>
 
