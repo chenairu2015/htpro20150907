@@ -52,7 +52,11 @@ public class PinyinUtil {
 		StringBuffer sbf = new StringBuffer();
 		if (str != null) {
 			for (int i = 0; i < str.length(); i++) {
-				sbf.append(getCharInitial(str.charAt(i)));
+				if (str.charAt(i)> 128) {
+					sbf.append(getCharInitial(str.charAt(i)));
+				}else{
+					sbf.append(str.charAt(i));
+				}
 			}
 		}
 		return sbf.toString();
@@ -93,6 +97,8 @@ public class PinyinUtil {
 				if (nameChar[i] > 128) {
 					pinyinStr += PinyinHelper.toHanyuPinyinStringArray(cha,
 							getOutputFormat())[0];
+				}else{
+					pinyinStr += cha;
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -126,11 +132,11 @@ public class PinyinUtil {
 
 	public static void main(String[] args) {
 		String stringInitial = PinyinUtil.getInstance().getInitial(
-				"玥是个生僻字一般的拼音码解析不了");
+				"AAAA 玥是个生僻字一般的拼音码解析不了");
 		System.out.println(stringInitial);
 
 		String stringPinyin = PinyinUtil.getInstance().getPinyin(
-				"玥是个生僻字一般的拼音码解析不了");
+				"VVVV 玥是个生僻字一般的拼音码解析不了");
 		System.out.println(stringPinyin);
 
 	}

@@ -1,12 +1,9 @@
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jnyt.exception.FileException;
-import com.jnyt.zapi.FileHelper;
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
-
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 
 public class RR {
 	public static void main00(String[] args) {
@@ -25,7 +22,7 @@ public class RR {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main12(String[] args) {
 		List list = new ArrayList();
 		list.add("AAA1");
 		list.add("AAA2");
@@ -33,5 +30,26 @@ public class RR {
 		JSONArray json = JSONArray.fromObject(list);
 		System.out.println(json.toString());
 	}
-	
+
+	public static void main22(String[] args) {
+		String ss = new String("\u4e2d\u56fd");
+		System.out.println(ss);
+	}
+
+	public static void main23(String[] args) {
+		// int di = 2;
+		// int me = 31;
+		JSONObject jsonobj = new JSONObject();
+		int di = 3;
+		int me = 21;
+		long re = 0;
+		re = (long) Math.pow(di, me);
+		System.out.println(re);
+	}
+
+	public static void main(String[] args) {
+//		for (int j = 0; j < 100; j++) {
+			System.out.println((int) ((Math.random() * 9 + 1) * 100000));
+//		}
+	}
 }

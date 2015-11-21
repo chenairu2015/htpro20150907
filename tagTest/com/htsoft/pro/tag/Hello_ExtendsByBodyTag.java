@@ -3,6 +3,7 @@ package com.htsoft.pro.tag;
 import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 // 开发带Body的标签库
@@ -32,10 +33,16 @@ public class Hello_ExtendsByBodyTag extends BodyTagSupport {
 		super();
 	}
 
+	/**
+	 * 设置counts属性。这个方法由容器自动调用。
+	 */
 	public void setCounts(int c) {
 		this.counts = c;
 	}
 
+	/**
+	 * 覆盖doStartTag方法
+	 */
 	@Override
 	public int doStartTag() throws JspException {
 		System.out.println("开始。。。");
@@ -46,6 +53,9 @@ public class Hello_ExtendsByBodyTag extends BodyTagSupport {
 		}
 	}
 
+	/**
+	 * 覆盖doAfterBody方法
+	 */
 	@Override
 	public int doAfterBody() {
 		System.out.println("doAfterBody" + counts);
@@ -57,6 +67,9 @@ public class Hello_ExtendsByBodyTag extends BodyTagSupport {
 		}
 	}
 
+	/**
+	 * 覆盖doEndTag方法
+	 */
 	@Override
 	public int doEndTag() throws JspException {
 		System.out.println("doEndTag");
@@ -68,6 +81,15 @@ public class Hello_ExtendsByBodyTag extends BodyTagSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return super.doEndTag();
+		return EVAL_PAGE;
+	}
+
+	public void doInitBody() {
+		System.out.println("doInitBody");
+	}
+
+	public void setBodyContent(BodyContent bodyContent) {
+		System.out.println("setBodyContent");
+		this.bodyContent = bodyContent;
 	}
 }
