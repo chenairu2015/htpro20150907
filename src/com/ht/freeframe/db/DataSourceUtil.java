@@ -1,10 +1,8 @@
 package com.ht.freeframe.db;
 
-import java.util.HashMap;
+import java.util.Properties;
 
 import javax.sql.DataSource;
-
-import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
@@ -28,13 +26,15 @@ public class DataSourceUtil {
 	/** The dbcp source. */
 	private static DataSource dbcpSource;
 
+	private static Properties p = new DruidProperties().getProperties();
+
 	public static final DataSource getDataSource(int sourceType)
 			throws Exception {
 		DataSource dataSource = null;
 		switch (sourceType) {
 		case DRUID_MYSQL_SOURCE:
 			if (druidMysqlSource == null) {
-				druidMysqlSource = DruidDataSourceFactory.createDataSource();
+				druidMysqlSource = DruidDataSourceFactory.createDataSource(p);
 			}
 			dataSource = druidMysqlSource;
 			break;
@@ -47,13 +47,15 @@ public class DataSourceUtil {
 			break;
 		case DBCP_SOURCE:
 			if (dbcpSource == null) {
-				dbcpSource = BasicDataSourceFactory
-						.createDataSource(MySqlConfigProperty.getInstance()
-								.getProperties());
+				// dbcpSource = BasicDataSourceFactory
+				// .createDataSource(MySqlConfigProperty.getInstance(p)
+				// .getProperties());
+				dbcpSource = DruidDataSourceFactory.createDataSource(p);
 			}
 			dataSource = dbcpSource;
 			break;
 		}
 		return dataSource;
 	}
+
 }
